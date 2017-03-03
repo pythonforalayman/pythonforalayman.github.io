@@ -24,20 +24,24 @@ with
 
 If you are using positional arguments, inside of your string you replace your variables with **`{n}`**, where **`n`** is the position of the argument you want.
 
+#### Usage
 ```python
 print("First Argument: '{0}' Second Argument: '{1}'".format("I'm number 1!", ":( number two."))
 ```
 
+#### Output
 ```
 First Argument: 'I'm number 1!' Second Argument: ':( number two.'
 ```
 
+#### Usage
 If you pass in keyword arguments, you simply put **`{key}`**, where **`key`** is the keyword in **`.format()`**. Keywords are not positional, so the order of them does not matter.
 
 ```python
 print("Name: '{name}' Age: '{age}'".format(age=45, name="Ron Paul"))
 ```
 
+#### Output
 ```
 Name: 'Ron Paul' Age: '45'
 ```
@@ -45,14 +49,21 @@ Name: 'Ron Paul' Age: '45'
 
 ## String Formatting with an Array
 #### Positional Arguments
+#### Usage
 ```python
 names = ["Ron", "Adam"]
 ages = [45, 32]
-print("{0[0]} is the first name and {1[0]} is the first age.".format(names, ages))
+print("{0[1]} is the second name and {1[0]} is the first age.".format(names, ages))
 print("{0[1]} is the second age.".format(ages))
+```
+#### Output
+```
+Adam is the first name and 45 is the first age.
+32 is the second age.
 ```
 
 #### Keyword Arguments
+#### Usage
 ```python
 names = ["Ron", "Adam"]
 print("{names[0]} is the first name.".format(names=names))
@@ -66,8 +77,10 @@ Adam is the second name.
 
 
 ## String Formatting with a Dictionary
+
 If you notice, this is the same idea of the Class formatting.
 The `**` takes the dictionary keys and makes them in to keyword arguments for the [.format()](https://docs.python.org/3/library/string.html#custom-string-formatting) function.
+
 #### Usage
 ```python
 person = {
@@ -107,6 +120,7 @@ print("{first_name} {last_name} is {age} years old.".format(**vars(u1)))
 Ron Paul is 45 years old.
 ```
 
+#### Usage
 ```python
 u1 = Person("Ron", "Paul", 45)
 u2 = Person("Adam", "Smith", 32)
