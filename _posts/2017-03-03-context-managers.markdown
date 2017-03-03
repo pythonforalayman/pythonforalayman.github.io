@@ -15,6 +15,8 @@ with open("file_name.txt", "mode") as variable:
     pass
 ```
 
+Our file is now only active within the **`with`** scope. We can perform all of our operations on the file now with a guarantee of it getting closed when we want it to.
+
 Once you leave the **`with`** statement, the file closes and you can't read or write to it until you open it again.
 
 
@@ -35,6 +37,7 @@ except Exception as e:
 ### Output
 ```
 Successfully wrote to the file.
+
 Did not successfully write to the file.
 Traceback (most recent call last):
   File "C:\Development\Tutorials\context_managers.py", line 17, in <module>
@@ -43,6 +46,13 @@ Traceback (most recent call last):
     f.write("{0.closed}\n".format(f))
 ValueError: I/O operation on closed file.
 ```
+
+### output_file.txt Contents
+```
+False
+```
+
+As you can tell, the file is writeable in our first **`with`** statement and it writes **`False`** (since it's not closed) to the file. Once we leave the statement, however, we can no longer write to it since it is closed.
 
 ## Custom Context Manager - Timer
 
