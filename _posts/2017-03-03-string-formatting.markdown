@@ -22,6 +22,8 @@ with
 
 ## General String Formatting
 
+
+### Positional Arguments
 If you are using positional arguments, inside of your string you replace your variables with **`{n}`**, where **`n`** is the position of the argument you want.
 
 #### Usage
@@ -35,6 +37,7 @@ First Argument: 'I'm number 1!' Second Argument: ':( number two.'
 ```
 
 
+### Keyword Arguments
 #### Usage
 If you pass in keyword arguments, you simply put **`{key}`**, where **`key`** is the keyword in **`.format()`**. Keywords are not positional, so the order of them does not matter.
 
