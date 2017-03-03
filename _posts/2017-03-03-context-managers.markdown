@@ -6,7 +6,7 @@ categories: context managers
 ---
 # Context Managers
 
-A ContextManager only keeps the object active in its scope. These are useful for file IO as you never have to remember to .close() your files. This prevents memory leaks and is all around healthier for files. If your code throws an exception, your file will still get closed.
+A ContextManager only keeps the object active in its scope. You can create custom Context Managers or utilize default ones. File IO context managers are useful as you never have to remember to **`.close()`** your files. This prevents memory leaks and it is all around healthier for files. If your code throws an exception, your file will still get closed, something that would not happen if you were just using **`.close()`**
 
 ## File IO Context Manager
 ### Syntax
@@ -14,6 +14,9 @@ A ContextManager only keeps the object active in its scope. These are useful for
 with open("file_name.txt", "mode") as variable:
     pass
 ```
+
+Once you leave the **`with`** statement, the file closes and you can't read or write to it until you open it again.
+
 
 ### Usage
 ```python
@@ -28,6 +31,7 @@ except Exception as e:
     raise e
 ```
 
+
 ### Output
 ```
 Successfully wrote to the file.
@@ -41,6 +45,9 @@ ValueError: I/O operation on closed file.
 ```
 
 ## Custom Context Manager - Timer
+
+If you want to create a custom Context Manager, all you need is a class with an **`__enter__(self)`** and an **`__exit(self)__`** function. When the Context Manager becomes in scope, it will call **`__enter__(self)`**. When it goes out of scope, it will call **`__exit__(self)`**; we need to put our cleanup code in here since it'll always get called.
+
 ### Class
 ```python
 import time
