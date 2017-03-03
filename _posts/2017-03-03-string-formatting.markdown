@@ -34,6 +34,7 @@ print("First Argument: '{0}' Second Argument: '{1}'".format("I'm number 1!", ":(
 First Argument: 'I'm number 1!' Second Argument: ':( number two.'
 ```
 
+
 #### Usage
 If you pass in keyword arguments, you simply put **`{key}`**, where **`key`** is the keyword in **`.format()`**. Keywords are not positional, so the order of them does not matter.
 
@@ -61,6 +62,7 @@ print("{0[1]} is the second age.".format(ages))
 Adam is the first name and 45 is the first age.
 32 is the second age.
 ```
+
 
 #### Keyword Arguments
 #### Usage
@@ -119,6 +121,7 @@ print("{first_name} {last_name} is {age} years old.".format(**vars(u1)))
 ```
 Ron Paul is 45 years old.
 ```
+
 
 #### Usage
 ```python
