@@ -22,8 +22,7 @@ with
 
 ## General String Formatting
 
-In general, inside of your string you replace your variables with **`{n}`**, where **`n`** is the position of the argument you want.
-
+If you are using positional arguments, inside of your string you replace your variables with **`{n}`**, where **`n`** is the position of the argument you want.
 
 ```python
 print("First Argument: '{0}' Second Argument: '{1}'".format("I'm number 1!", ":( number two."))
@@ -31,6 +30,16 @@ print("First Argument: '{0}' Second Argument: '{1}'".format("I'm number 1!", ":(
 
 ```
 First Argument: 'I'm number 1!' Second Argument: ':( number two.'
+```
+
+If you pass in keyword arguments, you simply put **`{key}`**, where **`key`** is the keyword in **`.format()`**. Keywords are not positional, so the order of them does not matter.
+
+```python
+print("Name: '{name}' Age: '{age}'".format(age=45, name="Ron Paul"))
+```
+
+```
+Name: 'Ron Paul' Age: '45'
 ```
 
 ## String Formatting with a Class
