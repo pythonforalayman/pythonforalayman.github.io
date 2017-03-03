@@ -50,7 +50,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  jekyll (= 3.4.1)
   jekyll-feed (~> 0.6)
   jekyll-theme-slate
   tzinfo-data

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "SQLAlchemy Tutorial"
 date:   2017-03-03 09:15:22 -0500
 categories: sqlalchemy tutorial python3
