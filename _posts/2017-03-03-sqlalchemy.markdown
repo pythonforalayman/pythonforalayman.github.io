@@ -263,6 +263,15 @@ all_users = session.query(Account).all()
 
 If we just want to get all of the rows in our **`Accounts`** table matching our query, we simply use **`.all()`**.
 
+#### Select The First Row
+
+```python
+first_user = session.query(Account).first()
+```
+
+If we just want the first user matching our query, we simply use **`.first()`**. In all instances where you see **`.all()`**, you can replace it with **`.first()`** if that suits what you need.
+
+
 
 #### Selecting Specific Rows
 
