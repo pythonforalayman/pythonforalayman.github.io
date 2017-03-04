@@ -2,11 +2,21 @@
 layout: default
 title:  "Context Managers"
 date:   2017-03-03 15:12:22 -0500
-categories: context managers
+category: "General Topics" 
+tags: context managers safe file io
+published: true
 ---
+
 # Context Managers
 
 A ContextManager only keeps the object active in its scope. You can create custom Context Managers or utilize default ones. File IO context managers are useful as you never have to remember to **`.close()`** your files. This prevents memory leaks and it is all around healthier for files. If your code throws an exception, your file will still get closed, something that would not happen if you were just using **`.close()`**
+
+### Table of contents
+{:.no_toc}
+
+* Table of contents placeholder
+{:toc}
+
 
 ## File IO Context Manager
 ### Syntax

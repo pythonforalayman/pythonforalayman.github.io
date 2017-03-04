@@ -1,11 +1,19 @@
 ---
 layout: default
-title:  "SQLAlchemy Tutorial"
+title:  "Full Tutorial"
 date:   2017-03-03 09:15:22 -0500
-categories: sqlalchemy tutorial python3
+category: SQLAlchemy 
+tags: sqlalchemy tutorial
+published: true
 ---
-
 # SQLAlchemy
+
+### Table of contents
+{:.no_toc}
+
+* Table of contents placeholder
+{:toc}
+
 
 ## I) Installation
 It's highly recommended to install all of your packages into a **`virtualenv`** that you're going to be using for this project. It helps keep your packages nice and orderly. If you're **not** using **`virtualenv`**, skip the next two steps.
@@ -29,7 +37,7 @@ pip install sqlalchemy
 
 For this tutorial, **`sqlalchemy-1.1.5`** will be used. We're going to have two files, **`main.py`** for all of the database-related code, and **`models.py`** for our tables that we're going to create.
 
-## II) Getting Connected in **`main.py`**
+## II) Getting Connected in **main.py**
 
 
 ### Imports
@@ -88,7 +96,7 @@ Base.metadata.create_all(engine)
 **`Base`** is imported from **`models.py`**; it's the "backbone" of all of our table classes. Once we call **`create_all()`**, the SQLAlchemy will create all of our tables that we have associated with Base. Currently, we do not have any tables.
 
 
-## III) Table Classes in **`models.py`**
+## III) Table Classes in **models.py**
 
 For the sake of keeping everything nice and organized, we're going to be putting all of our models in **`models.py`**. Our database connectivity and other database actions will be kept in **`main.py`**.
 
@@ -163,7 +171,7 @@ Here, we use **`id`** as our **`primary_key`** (a unique identifier that auto-in
 
 **`date_created`** is a **`DateTime`** object that defaults to **`CURRENT_TIMESTAMP`**. We use **`server_default`** when working with **`DateTime`** so that the value is set when the database recieves the information. **`func.now()`** returns the appropriate **`CURRENT_TIMESTAMP`** for the chosen dialect.
 
-### Overriding `__repr__` in **`Account`**
+### Overriding **__repr__()** in **Account**
 Later on, when we query our database and get results back, they will look something like this:
 
 ```python
@@ -186,7 +194,7 @@ Now, our results will like this:
 Much better!
 
 
-## III) Database Interaction in **`main.py`**
+## IV) Database Interaction in **main.py**
 
 Once we have our `Account` table set up and created in the database, we can now start interacting with it.
 

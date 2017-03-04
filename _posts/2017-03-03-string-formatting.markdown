@@ -2,7 +2,9 @@
 layout: default
 title:  "String Formatting"
 date:   2017-03-03 16:36:42 -0500
-categories: string formatting
+category: "String Formatting" 
+tags: string formatting
+published: false
 ---
 
 # String Formatting (3.5)
@@ -19,6 +21,15 @@ with
 ```python
 "Your name is {0} {1} and your age is {2}.".format(first_name, last_name, age)
 ```
+
+
+### Table of contents
+{:.no_toc}
+
+* Table of contents placeholder
+{:toc}
+
+
 
 ## General String Formatting
 
@@ -52,6 +63,9 @@ Name: 'Ron Paul' Age: '45'
 
 
 ## String Formatting with an Array
+Inside of our arguments, we can call the standard Python list slicing (**example**: **`list[0]`**).
+
+
 #### Positional Arguments
 #### Usage
 ```python
@@ -60,6 +74,8 @@ ages = [45, 32]
 print("{0[1]} is the second name and {1[0]} is the first age.".format(names, ages))
 print("{0[1]} is the second age.".format(ages))
 ```
+
+
 #### Output
 ```
 Adam is the first name and 45 is the first age.
