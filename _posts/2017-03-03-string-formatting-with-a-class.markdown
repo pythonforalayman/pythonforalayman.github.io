@@ -36,7 +36,7 @@ Ron Paul is 45 years old.
 ___
 
 ## Positional Arguments
-### Usage Positional Arguments
+### Usage
 ```python
 u1 = Person("Ron", "Paul", 45)
 u2 = Person("Adam", "Smith", 32)
