@@ -181,7 +181,7 @@ Later on, when we query our database and get results back, they will look someth
 <models.Account object at 0x0390BBF0>
 ```
 
-What account is that? What's the username? How many tokens does it have? If we want to answer those questions, we need to override **`__repr__`** in our **`Account`** class.
+What account is that? What's the username? How many tokens does it have? If we want to answer those questions, we need to override **`__repr__`** in our **`Account`** class. Check out [String Formatting with a Class](http://pythonforalayman.com/string-formatting-with-a-class#usage-positional-arguments) for more information on this.
 
 ```python
 def __repr__(self):
