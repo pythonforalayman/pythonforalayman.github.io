@@ -223,6 +223,10 @@ admin.password = "admin_password"
 
 As you can see, you can mix and match setting different values through the class constructor and through properties of the object itself. This is useful if you need to perform logic on different values before you commit the account to the database.
 
+
+***
+
+
 ### Saving to the Database
 
 All interaction with our database will be through our **`session`** variable that we created earlier. Whenever we create, modify, or delete objects, that changes are only stored temporarily in memory. To save it to the database, we have to **`add`** our object to our **`session`** and then **`commit`** the changes.
@@ -240,6 +244,12 @@ session.commit()
 
 
 Now, if we were to check our **`sqlalchemy-tutorial.db`** file, we would notice two rows. Let's fetch them now!
+
+
+
+***
+
+
 
 ### Selecting Rows from the Database
 
@@ -274,8 +284,9 @@ users = session.query(Account).filter(Account.tokens == 10, Account.verified == 
 >>> []
 ```
 
-For **`.filter_by()`**, the parameters are simply keyword arguments.
+For **`.filter_by()`**, the parameters are simply keyword arguments. As previously, these arguments are chainable as well.
 
 ```python
-pass
+users = session.query(Account).filter_by(tokens=10).all()
+>>> [<Account U: guest T: 10 V: False>]
 ```

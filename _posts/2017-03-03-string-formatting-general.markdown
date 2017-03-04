@@ -8,6 +8,10 @@ published: true
 ---
 
 # General String Formatting
+
+***
+
+
 ### Positional Arguments
 If you are using positional arguments, inside of your string you replace your variables with **`{n}`**, where **`n`** is the position of the argument you want.
 
@@ -20,6 +24,8 @@ print("First Argument: '{0}' Second Argument: '{1}'".format("I'm number 1!", ":(
 ```
 First Argument: 'I'm number 1!' Second Argument: ':( number two.'
 ```
+
+***
 
 
 ### Keyword Arguments
