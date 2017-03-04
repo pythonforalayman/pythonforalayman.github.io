@@ -8,6 +8,9 @@ published: true
 ---
 # SQLAlchemy
 
+Do you want to efficiently and easily interact with an SQL database in Python, but you're tired of creating those **pesky** SQL statements? Look no further. With **SQLAlchemy**, you never have to write a single SQL expression ever again! SQLAlchemy is one of the best Python libraries for performing CRUD (create, read, update, and delete) operations on your databases. Tables are simply custom classes and rows are simply objects of those classes. It's very clean and easy to read, and the best part about it is you ***never*** have to write another SQL statement ever again!
+
+
 ### Table of contents
 {:.no_toc}
 
@@ -223,6 +226,7 @@ admin.password = "admin_password"
 
 As you can see, you can mix and match setting different values through the class constructor and through properties of the object itself. This is useful if you need to perform logic on different values before you commit the account to the database.
 
+**Note**: These new accounts do not exist in our database yet - they're only in memory!
 
 ***
 
@@ -298,4 +302,36 @@ For **`.filter_by()`**, the parameters are simply keyword arguments. As previous
 ```python
 users = session.query(Account).filter_by(tokens=10).all()
 >>> [<Account U: guest T: 10 V: False>]
+```
+
+
+### Updating a Row
+
+To update a row, first we need to fetch the object that we want. Afterwards, we can set whatever values we want. Let's change the password.
+
+```python
+admin = session.query(Account).filter_by(username="admin").first()
+admin.password = "new_password"
+```
+
+In the database, admin's password is still **admin_password**. As mentioned earlier, we need to **add** our object to our session and then **commit** it to the database.
+
+```python
+admin = session.query(Account).filter_by(username="admin").first()
+admin.password = "new_password"
+session.add(admin)
+session.commit()
+```
+
+Now, if we were to check our database file, admin's password is now saved as **new_password**!
+
+
+### Deleting a Row
+
+To delete a row, fetch the object that you want and then **`.delete()`** it from the session. Don't forget to commit!
+
+```python
+guest = session.query(Account).filter_by(username="guest").first()
+session.delete(guest)
+session.commit()
 ```

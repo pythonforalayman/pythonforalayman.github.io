@@ -8,7 +8,7 @@ published: true
 ---
 
 # SQLAlchemy
-## Database Interaction in **`main.py`**
+## IV) Database Interaction in **main.py**
 
 Once we have our `Account` table set up and created in the database, we can now start interacting with it.
 
@@ -37,6 +37,11 @@ admin.password = "admin_password"
 
 As you can see, you can mix and match setting different values through the class constructor and through properties of the object itself. This is useful if you need to perform logic on different values before you commit the account to the database.
 
+**Note**: These new accounts do not exist in our database yet - they're only in memory!
+
+***
+
+
 ### Saving to the Database
 
 All interaction with our database will be through our **`session`** variable that we created earlier. Whenever we create, modify, or delete objects, that changes are only stored temporarily in memory. To save it to the database, we have to **`add`** our object to our **`session`** and then **`commit`** the changes.
@@ -55,6 +60,12 @@ session.commit()
 
 Now, if we were to check our **`sqlalchemy-tutorial.db`** file, we would notice two rows. Let's fetch them now!
 
+
+
+***
+
+
+
 ### Selecting Rows from the Database
 
 As mentioned earlier, all of our interaction with our database is with our **`session`** variable. To query the database, we use the **`.query(Table)`** function.
@@ -66,6 +77,15 @@ all_users = session.query(Account).all()
 ```
 
 If we just want to get all of the rows in our **`Accounts`** table matching our query, we simply use **`.all()`**.
+
+#### Select The First Row
+
+```python
+first_user = session.query(Account).first()
+```
+
+If we just want the first user matching our query, we simply use **`.first()`**. In all instances where you see **`.all()`**, you can replace it with **`.first()`** if that suits what you need.
+
 
 
 #### Selecting Specific Rows
@@ -88,8 +108,41 @@ users = session.query(Account).filter(Account.tokens == 10, Account.verified == 
 >>> []
 ```
 
-For **`.filter_by()`**, the parameters are simply keyword arguments.
+For **`.filter_by()`**, the parameters are simply keyword arguments. As previously, these arguments are chainable as well.
 
 ```python
-pass
+users = session.query(Account).filter_by(tokens=10).all()
+>>> [<Account U: guest T: 10 V: False>]
+```
+
+
+### Updating a Row
+
+To update a row, first we need to fetch the object that we want. Afterwards, we can set whatever values we want. Let's change the password.
+
+```python
+admin = session.query(Account).filter_by(username="admin").first()
+admin.password = "new_password"
+```
+
+In the database, admin's password is still **admin_password**. As mentioned earlier, we need to **add** our object to our session and then **commit** it to the database.
+
+```python
+admin = session.query(Account).filter_by(username="admin").first()
+admin.password = "new_password"
+session.add(admin)
+session.commit()
+```
+
+Now, if we were to check our database file, admin's password is now saved as **new_password**!
+
+
+### Deleting a Row
+
+To delete a row, fetch the object that you want and then **`.delete()`** it from the session. Don't forget to commit!
+
+```python
+guest = session.query(Account).filter_by(username="guest").first()
+session.delete(guest)
+session.commit()
 ```
