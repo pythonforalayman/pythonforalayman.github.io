@@ -163,7 +163,7 @@ Here, we use **`id`** as our **`primary_key`** (a unique identifier that auto-in
 
 **`date_created`** is a **`DateTime`** object that defaults to **`CURRENT_TIMESTAMP`**. We use **`server_default`** when working with **`DateTime`** so that the value is set when the database recieves the information. **`func.now()`** returns the appropriate **`CURRENT_TIMESTAMP`** for the chosen dialect.
 
-### Overriding `__repr__`
+### Overriding `__repr__` in **`Account`**
 Later on, when we query our database and get results back, they will look something like this:
 
 ```python
