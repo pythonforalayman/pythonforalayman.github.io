@@ -33,3 +33,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
 permalink: /:title
+google_analytics: UA-93016720-1
