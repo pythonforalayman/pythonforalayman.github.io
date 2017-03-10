@@ -197,7 +197,7 @@ Now, our results will like this:
 Much better!
 
 
-## IV) Database Interaction in **main.py**
+## IV) Database CRUD Interaction in **main.py**
 
 Once we have our `Account` table set up and created in the database, we can now start interacting with it.
 

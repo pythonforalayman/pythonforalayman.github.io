@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "IV) Database Interaction in main.py"
+title:  "IV) Database CRUD Interaction in main.py"
 date:   2017-03-03 09:19:22 -0500
 category: SQLAlchemy 
 tags: sqlalchemy tutorial database interaction main.py
